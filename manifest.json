@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.spoilheap.openrouter",
+  "name": "OpenRouter",
+  "version": "1.0.0",
+  "author": "SpoilHeap",
+  "license": "MIT",
+  "description": "Remaining OpenRouter credit in the bar, with purchased-versus-spent, key caps, and today/week/month spend in a popup.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "OpenRouter",
+    "description": "Credit remaining on the OpenRouter account, the spend behind it, and any cap on the key itself.",
+    "category": "AI",
+    "aliases": ["openrouter", "credits"],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshIntervalSec": 300,
+      "lowBalance": 5,
+      "barLabel": "Amount",
+      "keyCommand": ""
+    },
+    "schema": [
+      {
+        "key": "refreshIntervalSec",
+        "type": "integer",
+        "label": "Refresh interval (seconds)",
+        "min": 60,
+        "max": 21600,
+        "step": 30,
+        "defaultValue": 300
+      },
+      {
+        "key": "lowBalance",
+        "type": "number",
+        "label": "Low balance warning",
+        "min": 0,
+        "max": 100000,
+        "step": 1,
+        "defaultValue": 5,
+        "description": "Turn the bar figure urgent at or below this many credits remaining."
+      },
+      {
+        "key": "barLabel",
+        "type": "enum",
+        "label": "Bar label",
+        "options": ["Amount", "Icon only"],
+        "defaultValue": "Amount",
+        "description": "Show the remaining figure next to the icon, or keep the bar to the icon alone."
+      },
+      {
+        "key": "keyCommand",
+        "type": "string",
+        "label": "API key command",
+        "defaultValue": "",
+        "description": "Optional shell command that prints the OpenRouter key, e.g. 'pass show openrouter/api-key'. Leave empty to use OPENROUTER_API_KEY or ~/.config/omarchy/openrouter/key."
+      }
+    ]
+  }
+}
