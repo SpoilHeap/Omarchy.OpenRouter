@@ -325,6 +325,7 @@ Panel {
             iconComponent: Component {
               Text {
                 text: root.glyph
+                textFormat: Text.PlainText
                 color: service.alarming ? root.urgent : root.foreground
                 font.family: root.fontFamily
                 font.pixelSize: Style.font.display
@@ -357,6 +358,7 @@ Panel {
             visible: root.noticeText !== ""
             width: parent.width
             text: root.noticeText
+            textFormat: Text.PlainText
             color: root.noticeIsError ? root.urgent : root.dim
             font.family: root.fontFamily
             font.pixelSize: Style.font.bodySmall
@@ -367,6 +369,7 @@ Panel {
             visible: service.hint !== ""
             width: parent.width
             text: service.hint
+            textFormat: Text.PlainText
             color: root.dim
             font.family: root.fontFamily
             font.pixelSize: Style.font.caption
@@ -411,6 +414,7 @@ Panel {
               width: parent.width
               text: service.todayRatio >= 0 ? Model.todaySpendDetail(service.spendToday)
                 : Model.balanceDetail(service.funded, service.spent)
+              textFormat: Text.PlainText
               color: root.dim
               font.family: root.fontFamily
               font.pixelSize: Style.font.caption
@@ -449,6 +453,7 @@ Panel {
               visible: text !== ""
               width: parent.width
               text: Model.capDetail(service.keyLimit, service.keyLimitRemaining, service.keyLimitReset)
+              textFormat: Text.PlainText
               color: root.dim
               font.family: root.fontFamily
               font.pixelSize: Style.font.caption
@@ -490,6 +495,7 @@ Panel {
               visible: text !== ""
               width: spendSection.width
               text: root.spendHint
+              textFormat: Text.PlainText
               color: root.dim
               font.family: root.fontFamily
               font.pixelSize: Style.font.caption
@@ -581,6 +587,7 @@ Panel {
             Text {
               width: parent.width
               text: service.saving ? "Saving\u2026" : root.keyFormHint
+              textFormat: Text.PlainText
               color: !service.saving && root.keyFormHintIsError ? root.urgent : root.dim
               font.family: root.fontFamily
               font.pixelSize: Style.font.caption
@@ -618,6 +625,7 @@ Panel {
             width: parent.width
             topPadding: Style.space(2)
             text: root.footerText
+            textFormat: Text.PlainText
             color: root.dim
             font.family: root.fontFamily
             font.pixelSize: Style.font.caption
@@ -642,6 +650,7 @@ Panel {
     Text {
       id: ledgerLabel
       text: ledgerRow.label
+      textFormat: Text.PlainText
       color: root.foreground
       font.family: root.fontFamily
       font.pixelSize: Style.font.body
@@ -655,6 +664,7 @@ Panel {
     Text {
       id: ledgerValue
       text: ledgerRow.value
+      textFormat: Text.PlainText
       color: ledgerRow.alarming ? root.urgent : root.foreground
       font.family: root.fontFamily
       font.pixelSize: Style.font.caption
@@ -721,6 +731,7 @@ Panel {
 
       Text {
         text: actionRow.row ? String(actionRow.row.icon) : ""
+        textFormat: Text.PlainText
         color: root.foreground
         font.family: root.fontFamily
         font.pixelSize: Style.font.icon
@@ -735,6 +746,7 @@ Panel {
         Text {
           Layout.fillWidth: true
           text: actionRow.row ? String(actionRow.row.title) : ""
+          textFormat: Text.PlainText
           color: root.foreground
           font.family: root.fontFamily
           font.pixelSize: Style.font.body
@@ -744,6 +756,7 @@ Panel {
         Text {
           Layout.fillWidth: true
           text: actionRow.row ? String(actionRow.row.subtitle) : ""
+          textFormat: Text.PlainText
           color: root.dim
           font.family: root.fontFamily
           font.pixelSize: Style.font.caption
