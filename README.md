@@ -9,6 +9,8 @@ week, and this month.
   $74.75
 ```
 
+![Bar icon and popup showing account balance, spend today/week/month, and actions to add credits, view activity, or replace the key](preview.png)
+
 ## Install
 
 ```bash
