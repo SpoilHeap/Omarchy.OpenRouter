@@ -99,6 +99,25 @@ takes precedence over the file and the panel says so — a key saved from the
 UI in that case is written to the file but won't be used until the
 higher-priority source is unset.
 
+## Uninstall
+
+```bash
+omarchy plugin disable io.github.spoilheap.openrouter
+rm -rf ~/.config/omarchy/plugins/io.github.spoilheap.openrouter
+omarchy restart shell
+```
+
+That removes the plugin's own checkout, but not the API key: it's written to
+`~/.config/omarchy/openrouter/`, outside the checkout, so a saved key survives
+a reinstall. To also remove the key and the today's-spend state file:
+
+```bash
+rm -rf ~/.config/omarchy/openrouter
+```
+
+If the key came from `keyCommand` or an environment variable instead of the
+file, clear that too — it isn't touched by either command above.
+
 ## Interactions
 
 - **Bar icon** — left: panel · right: refresh without opening · middle: top-up page
